@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 struct person {
   char name[20];
@@ -18,11 +19,20 @@ person createPerson(char name[], int age){
      order in the struct instance was created
      by this function, starting at 1
   */
-  return NULL; // change this
+  static int id = 0;
+  id++;
+  person p = malloc(sizeof(struct person));
+  strcpy(p->name, name);
+  p->age = age;
+  p->idNum = id;
+  return p; 
 }
 
 void printPerson(person p){
   // print each field in the struct
+  printf("name = %s\n", p->name);
+  printf("age = %d\n", p->age);
+  printf("id number = %d\n", p->idNum);
 }
 
 void set_age(person p, int age){
@@ -31,6 +41,9 @@ void set_age(person p, int age){
 }
 
 int main(){
-  
+  person p1 = createPerson("Derek", 19);
+  person p2 = createPerson("Alice", 50);
+  printPerson(p1);
+  printPerson(p2);
   return 0;
 }

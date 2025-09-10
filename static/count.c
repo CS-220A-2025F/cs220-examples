@@ -14,7 +14,7 @@ int main(){
 
 void counter(){
   // TODO: fix this so that it correctly keeps count
-  int count = 0;
+  static int count = 0;
   count++;
   printf("counter has been called %d times\n", count);
 }
