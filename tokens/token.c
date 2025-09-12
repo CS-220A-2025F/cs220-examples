@@ -8,7 +8,7 @@ int main(){
      i.e. all non-empty substrings separated by a single
      space
   */
-  char str[] = "These are tokens separated by spaces.";
+  char str[] = "These are tokens separated  by spaces.";
   char *token = stringTok(str, ' ');
   int i = 1;
   while (token != NULL){
@@ -21,15 +21,23 @@ int main(){
 
 char *stringTok(char *str, char delim){
   /* TODO: 1) If str != NULL, save it in a static variable
-     savedStr. 
-     2) Iterate through the string and replace the first
-     instance of the delimiter 'delim' with a null byte
-     and return a pointer to where the saved string
-     started initially, while updating savedStr to the
-     address of the character after the null byte that
-     was just written.
-     3) If the saved string is empty (i.e. no tokens
-     remain), return NULL.
+     savedStr.
+     2) If the saved string is empty (i.e. no tokens
+     remain), return NULL
+     3) Otherwise, iterate through the saved string and
+     replace the first instance of the delimiter 'delim'
+     with a null byte and return a pointer to where the
+     saved string started initially, while updating
+     savedStr to the address of the character after the
+     null byte that was just written.
   */
-  return NULL; // change this
+  static char * savedStr;
+  if (str != NULL) savedStr = str;
+  if ('\0' == *savedStr) return NULL;
+  char * retStr = savedStr;
+  while (*savedStr != delim && *savedStr != '\0')
+    savedStr++;
+  *savedStr = '\0';
+  savedStr++;
+  return retStr; 
 }
