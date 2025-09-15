@@ -20,7 +20,7 @@ int main(){
 }
 
 char *stringTok(char *str, char delim){
-  /* TODO: 1) If str != NULL, save it in a static variable
+  /* 1) If str != NULL, save it in a static variable
      savedStr.
      2) If the saved string is empty (i.e. no tokens
      remain), return NULL
@@ -38,6 +38,6 @@ char *stringTok(char *str, char delim){
   while (*savedStr != delim && *savedStr != '\0')
     savedStr++;
   *savedStr = '\0';
-  savedStr++;
+  savedStr++; // fix this so empty strings won't be returned
   return retStr; 
 }
