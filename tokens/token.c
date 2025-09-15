@@ -38,6 +38,6 @@ char *stringTok(char *str, char delim){
   while (*savedStr != delim && *savedStr != '\0')
     savedStr++;
   *savedStr = '\0';
-  savedStr++; // fix this so empty strings won't be returned
+  do {savedStr++;} while (*savedStr == delim); // fix this so empty strings won't be returned
   return retStr; 
 }
