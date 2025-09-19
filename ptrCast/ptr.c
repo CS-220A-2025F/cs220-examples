@@ -14,10 +14,10 @@ int main(){
   // and print *ptr_i and *ptr_l
   // again, make sure there are no warnings
 
-  *ptr_i = 100;
-  *(ptr_i + 1) = 200;
+  *ptr_i = 0x64;
+  *(ptr_i + 1) = 0xc8;
 
-  printf("*ptr_i = %d, *ptr_l = %ld\n", *ptr_i, *ptr_l);
+  printf("*ptr_i = %x, *ptr_l = %lx\n", *ptr_i, *ptr_l);
   // TODO: clear the lower 13 bits of ptr_v
   printf("BEFORE: ptr_v = %p\n", ptr_v);
   uintptr_t res = (uintptr_t) ptr_v;
