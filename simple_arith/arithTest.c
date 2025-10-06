@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "arith.h"
+int a = 0;
+int b = 1;
 
 int main(int argc, char *argv[]){
   /* Get the two integers passed in through the command line
@@ -10,8 +12,10 @@ int main(int argc, char *argv[]){
      command line arguments from ascii to integers, and
      the "printf" function to print our result.
   */
-  int a = atoi(argv[1]);
-  int b = atoi(argv[2]);
+  if (argc > 1)
+    a = atoi(argv[1]);
+  if (argc > 2)
+    b = atoi(argv[2]);
 
   printf("%d + %d = %d\n", a, b, add(a,b));
   printf("%d - %d = %d\n", a, b, sub(a,b));

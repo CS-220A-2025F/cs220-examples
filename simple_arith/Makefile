@@ -7,8 +7,8 @@ Y = 2
 test : arithTest
 	./arithTest ${X} ${Y}
 
-arithTest : arithTest.c arith.c arith.h
-	${CC} -o arithTest arithTest.c arith.c ${CFLAGS}
+arithTest : arithTest.o arith.o arith.h
+	${CC} -o arithTest arithTest.o arith.o ${CFLAGS}
 
 clean :
-	-rm arithTest
+	-rm arithTest *.o
